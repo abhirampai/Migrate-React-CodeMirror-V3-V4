@@ -19,7 +19,7 @@ const Main = () => {
       />
       <div className="editor-height mt-5">
         <CodeEditor
-          selectedLanguage={selectedLanguage?.title}
+          selectedLanguage={selectedLanguage?.value}
           value={value}
           onChange={setValue}
         />

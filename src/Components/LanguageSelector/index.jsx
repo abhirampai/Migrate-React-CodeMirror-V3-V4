@@ -8,6 +8,7 @@ const LanguageSelector = ({ selectedLanguage, setSelectedLanguage }) => {
         isSearchable
         name="language"
         placeholder="Select a Language"
+        className="w-full"
         value={selectedLanguage}
         options={LANGUAGE_OPTIONS}
         onChange={(selectedOption) => setSelectedLanguage(selectedOption)}
