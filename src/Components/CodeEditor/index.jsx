@@ -4,24 +4,30 @@ import CodeMirror from "@uiw/react-codemirror";
 import { keymap } from "@codemirror/view";
 import { sublime } from "@uiw/codemirror-theme-sublime";
 
-import { mapLanguages } from "./utils";
+import { handleIndentTab, jdoodleLanguagesMap, mapLanguages } from "./utils";
+import { runCode } from "../../Apis/runCode";
 
 const CodeEditor = ({ selectedLanguage, value, onChange }) => {
   const [toggleHeight, setToggleHeight] = useState(false);
 
-  const handleIndentTab = (cm) => {
-    const spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
-    cm.replaceSelection(spaces);
-  };
+  const editorHeight = "calc(100vh - 160px)";
+
+  const editorHeightSmall = "50vh";
 
   const extensions = [
     keymap.of([handleIndentTab]),
     mapLanguages(selectedLanguage)()
   ];
 
-  const editorHeight = "calc(100vh - 160px)";
-
-  const editorHeightSmall = "50vh";
+  const runEditorCode = async (e) => {
+    e.preventDefault();
+    const { language, versionIndex } = jdoodleLanguagesMap(selectedLanguage, 3);
+    await runCode({
+      script: value,
+      language,
+      versionIndex
+    });
+  };
 
   return (
     <>
@@ -32,12 +38,20 @@ const CodeEditor = ({ selectedLanguage, value, onChange }) => {
         onChange={(instance) => onChange(instance)}
         height={toggleHeight ? editorHeightSmall : editorHeight}
       />
-      <input
-        type="button"
-        value="Toggle Height"
-        className="mt-5"
-        onClick={() => setToggleHeight(!toggleHeight)}
-      />
+      <div className="flex justify-between">
+        <input
+          type="button"
+          value="Toggle Height"
+          className="mt-5"
+          onClick={() => setToggleHeight(!toggleHeight)}
+        />
+        <input
+          type="button"
+          value="Run Code"
+          className="mt-5"
+          onClick={runEditorCode}
+        />
+      </div>
     </>
   );
 };

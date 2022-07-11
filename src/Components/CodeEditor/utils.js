@@ -25,3 +25,28 @@ export const mapLanguages = (value) => {
   };
   return mappedLanguages[value];
 };
+
+export const handleIndentTab = (cm) => {
+  const spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+  cm.replaceSelection(spaces);
+};
+
+export const jdoodleLanguagesMap = (value, version = 0) => {
+  const python = version === 3 ? "python3" : "python2";
+
+  const versionIndex = value === "Python" ? "4" : "3";
+
+  const languages = {
+    JavaScript: { language: "nodejs", versionIndex },
+    Python: { language: python, versionIndex },
+    Java: { language: "java", versionIndex },
+    Rust: { language: "rust", versionIndex },
+    C: { language: "c", versionIndex },
+    "C++": { language: "cpp", versionIndex },
+    Go: { language: "go", versionIndex },
+    Ruby: { language: "ruby", versionIndex },
+    Bash: { language: "bash", versionIndex }
+  };
+
+  return languages[value];
+};
