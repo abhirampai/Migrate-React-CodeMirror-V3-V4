@@ -1,14 +1,16 @@
 import Select from "react-select";
 import { LANGUAGE_OPTIONS } from "./constants";
 
-const LanguageSelector = ({ selectedLanguage, setSelectedLanguage }) => {
+const LanguageSelector = ({ setSelectedLanguage }) => {
   return (
     <div className="flex">
       <Select
         isSearchable
-        name="language"
+        name="languages"
         placeholder="Select a Language"
-        value={selectedLanguage}
+        className="basic-single w-full"
+        classNamePrefix="select"
+        defaultValue={LANGUAGE_OPTIONS[0]}
         options={LANGUAGE_OPTIONS}
         onChange={(selectedOption) => setSelectedLanguage(selectedOption)}
       />

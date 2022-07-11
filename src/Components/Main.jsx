@@ -13,13 +13,10 @@ const Main = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <LanguageSelector
-        selectedLanguage={selectedLanguage}
-        setSelectedLanguage={setSelectedLanguage}
-      />
+      <LanguageSelector setSelectedLanguage={setSelectedLanguage} />
       <div className="editor-height mt-5">
         <CodeEditor
-          selectedLanguage={selectedLanguage?.title}
+          selectedLanguage={selectedLanguage?.value}
           value={value}
           onChange={setValue}
         />
