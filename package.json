@@ -13,8 +13,10 @@
     "@codemirror/legacy-modes": "6.1.0",
     "@uiw/codemirror-theme-sublime": "4.11.1",
     "@uiw/react-codemirror": "4.11.1",
+    "axios": "0.27.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-query": "3.39.1",
     "react-scripts": "4.0.0",
     "react-select": "5.4.0"
   },
