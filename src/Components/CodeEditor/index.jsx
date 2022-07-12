@@ -32,12 +32,6 @@ const CodeEditor = ({ selectedLanguage, value, onChange }) => {
         onChange={(instance) => onChange(instance)}
         height={toggleHeight ? editorHeightSmall : editorHeight}
       />
-      <input
-        type="button"
-        value="Toggle Height"
-        className="mt-5"
-        onClick={() => setToggleHeight(!toggleHeight)}
-      />
     </>
   );
 };
