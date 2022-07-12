@@ -1,7 +1,7 @@
 const OutputTerminal = ({ output }) => {
   return (
     <div className="output-terminal-bg output-terminal-height overflow-auto flex flex-col">
-      <span className="padding-top-left-1 text-white">{output}</span>
+      <pre className="padding-top-left-1 text-white">{output}</pre>
     </div>
   );
 };
