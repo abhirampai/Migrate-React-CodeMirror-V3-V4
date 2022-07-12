@@ -7,8 +7,6 @@ import { sublime } from "@uiw/codemirror-theme-sublime";
 import { mapLanguages } from "./utils";
 
 const CodeEditor = ({ selectedLanguage, value, onChange }) => {
-  const [toggleHeight, setToggleHeight] = useState(false);
-
   const handleIndentTab = (cm) => {
     const spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
     cm.replaceSelection(spaces);
@@ -21,8 +19,6 @@ const CodeEditor = ({ selectedLanguage, value, onChange }) => {
 
   const editorHeight = "calc(100vh - 160px)";
 
-  const editorHeightSmall = "50vh";
-
   return (
     <>
       <CodeMirror
@@ -30,7 +26,7 @@ const CodeEditor = ({ selectedLanguage, value, onChange }) => {
         extensions={extensions}
         theme={sublime}
         onChange={(instance) => onChange(instance)}
-        height={toggleHeight ? editorHeightSmall : editorHeight}
+        height={editorHeight}
       />
     </>
   );
