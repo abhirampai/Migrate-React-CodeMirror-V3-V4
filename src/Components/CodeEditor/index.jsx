@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import CodeMirror from "@uiw/react-codemirror";
 import { keymap } from "@codemirror/view";
 import { sublime } from "@uiw/codemirror-theme-sublime";
