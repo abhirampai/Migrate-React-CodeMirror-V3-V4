@@ -1,12 +1,10 @@
-import { useState } from "react";
-
 import CodeMirror from "@uiw/react-codemirror";
 import { keymap } from "@codemirror/view";
 import { sublime } from "@uiw/codemirror-theme-sublime";
 
 import { mapLanguages } from "./utils";
 
-const CodeEditor = ({ selectedLanguage, value, onChange }) => {
+const CodeEditor = ({ selectedLanguage, value, onChange, editable }) => {
   const handleIndentTab = (cm) => {
     const spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
     cm.replaceSelection(spaces);
@@ -27,6 +25,7 @@ const CodeEditor = ({ selectedLanguage, value, onChange }) => {
         theme={sublime}
         onChange={(instance) => onChange(instance)}
         height={editorHeight}
+        editable={editable}
       />
     </>
   );

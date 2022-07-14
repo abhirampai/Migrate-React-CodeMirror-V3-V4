@@ -46,3 +46,15 @@
 .text-white {
   color: white;
 }
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
