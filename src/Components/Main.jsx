@@ -83,6 +83,7 @@ const Main = () => {
           value={value}
           onChange={setValue}
           editable={!isLoading}
+          runCode={runEditorCode}
         />
       </div>
       <div className="flex mt-5 justify-end">
